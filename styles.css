@@ -1,0 +1,116 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Space Grotesk', 'Inter', Arial, sans-serif;
+  background: #0a0a0f;
+  color: #fff;
+  position: relative;
+}
+
+#vanta-bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  mix-blend-mode: overlay;
+  opacity: 0.95;
+}
+
+main {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  width: 100vw;
+  text-align: center;
+  z-index: 2;
+  user-select: none;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  letter-spacing: 0.08em;
+  margin: 0 0 1.5rem 0;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 16px #00ffe7, 0 0 32px #0ff;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+  color: #e0e0e0;
+  opacity: 0.85;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 8px #00ffe7;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* Glitch effect */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  opacity: 0.7;
+  pointer-events: none;
+}
+.glitch::before {
+  color: #00ffe7;
+  z-index: 1;
+  transform: translate(-2px, 0) skew(-2deg);
+  mix-blend-mode: lighten;
+}
+.glitch::after {
+  color: #ff00c8;
+  z-index: 2;
+  transform: translate(2px, 2px) skew(2deg);
+  mix-blend-mode: lighten;
+}
+.glitch:hover, .glitch:focus {
+  animation: glitch 0.5s infinite linear alternate-reverse;
+}
+@keyframes glitch {
+  0% { text-shadow: 2px 0 #00ffe7, -2px 0 #ff00c8; }
+  20% { text-shadow: -2px 2px #00ffe7, 2px -2px #ff00c8; }
+  40% { text-shadow: 2px -2px #00ffe7, -2px 2px #ff00c8; }
+  60% { text-shadow: -2px -2px #00ffe7, 2px 2px #ff00c8; }
+  80% { text-shadow: 2px 2px #00ffe7, -2px -2px #ff00c8; }
+  100% { text-shadow: -2px 0 #00ffe7, 2px 0 #ff00c8; }
+}
+
+/* Custom cursor orb */
+#cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00ffe7 60%, #0ff 100%);
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: lighten;
+  opacity: 0.7;
+  transform: translate(-50%, -50%);
+  transition: background 0.2s, width 0.2s, height 0.2s, opacity 0.2s;
+}
+@media (max-width: 600px) {
+  main { top: 24%; }
+  #cursor { display: none; }
+}

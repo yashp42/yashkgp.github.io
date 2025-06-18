@@ -13,15 +13,11 @@
       transform: translate(-50%, -50%);
       text-align: center;
       z-index: 2;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.25);
       padding: 2rem 3rem;
       border-radius: 20px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4);
       backdrop-filter: blur(6px);
-      transition: box-shadow 0.3s;
-    }
-    .overlay:hover {
-      box-shadow: 0 0 40px 10px #00ffe7, 0 8px 32px rgba(0,0,0,0.4);
     }
     .overlay h1 {
       font-family: 'Open Sans', sans-serif;
@@ -32,12 +28,6 @@
       margin-bottom: 0.5em;
       text-shadow: 0 0 16px #00ffe7, 0 2px 8px #000;
       animation: glow 2s infinite alternate;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    .overlay h1:hover {
-      color: #fff;
-      text-shadow: 0 0 32px #00ffe7, 0 2px 8px #000;
     }
     .overlay p {
       font-family: 'Open Sans', sans-serif;
@@ -48,13 +38,6 @@
       margin-top: 0.2em;
       text-shadow: 0 0 8px #00ffe7;
       animation: float 3s ease-in-out infinite;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    .overlay p:hover {
-      color: #00ffe7;
-      opacity: 1;
-      text-shadow: 0 0 16px #fff;
     }
     @keyframes glow {
       from { text-shadow: 0 0 8px #00ffe7, 0 2px 8px #000; }
